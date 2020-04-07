@@ -1,5 +1,5 @@
 import React from "react";
-
+import DropList from "./DropList";
 export default function SignUpForm() {
   return (
     <form className="p-5">
@@ -21,6 +21,10 @@ export default function SignUpForm() {
           placeholder="Enter email"
           className="form-control"
         />
+      </div>
+      <div className="form-group">
+        <label>Fav topics</label>
+        <DropList />
       </div>
       <div className="pr-1">
         <button className="btn btn-secondary mr-3" type="submit">
