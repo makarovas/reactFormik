@@ -1,8 +1,8 @@
 import React from "react";
 import DropList from "./DropList";
 import * as Yup from "yup";
-import { withFormik } from "formik";
-
+import { withFormik, ErrorMessage } from "formik";
+import Error from "./Error";
 const formikWrapper = withFormik({
   mapPropsToValues: () => ({
     username: "",
@@ -65,6 +65,7 @@ function SignUpForm({
           placeholder="Enter username"
           className="form-control"
         />
+        <ErrorMessage component={Error} name="username" />
       </div>
       <div className="form-group">
         <label>Email</label>
@@ -77,6 +78,7 @@ function SignUpForm({
           placeholder="Enter email"
           className="form-control"
         />
+        <ErrorMessage component={Error} name="email" />
       </div>
       <div className="form-group">
         <label>Fav topics</label>
@@ -86,7 +88,9 @@ function SignUpForm({
           onBlue={setTouchedValue}
           options={options}
         />
+        <ErrorMessage component={Error} name="dropList" />
       </div>
+
       <div className="pr-1">
         <button
           className="btn btn-secondary mr-3"
