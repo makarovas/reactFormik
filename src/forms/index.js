@@ -1,5 +1,5 @@
 import SimpleForm from "./Form";
-import SignUpForm from "./SignUpForm";
+import EnhancedForm from "./SignUpForm";
 import DropList from "./DropList";
 
-export { SimpleForm, SignUpForm, DropList };
+export { SimpleForm, EnhancedForm, DropList };

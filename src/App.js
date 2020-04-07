@@ -1,11 +1,11 @@
 import React from "react";
-import { SimpleForm, SignUpForm } from "./forms";
+import { SimpleForm, EnhancedForm } from "./forms";
 
 function App() {
   return (
     <div>
       {/* <SimpleForm /> */}
-      <SignUpForm />
+      <EnhancedForm />
     </div>
   );
 }

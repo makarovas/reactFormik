@@ -1,23 +1,23 @@
 import React, { Component } from "react";
 import Select from "react-select";
 
-const options = [
-  { value: "item 1", label: "item 1" },
-  { value: "item 2", label: "item 2" },
-  { value: "item 3", label: "item 3" },
-];
-
 export default class DropList extends Component {
-  handleChange = (value) => {};
-  handleBlur = (value) => {};
+  handleChange = (value) => {
+    this.props.onChange("topics", value);
+  };
+  handleBlur = () => {
+    this.props.onBlur("topics", true);
+  };
 
   render() {
+    const { value, options } = this.props;
     return (
       <Select
-        value={options[0]}
+        value={value}
         onChange={this.handleChange}
         onBLur={this.handleBlur}
         options={options}
+        isMulti
       />
     );
   }
