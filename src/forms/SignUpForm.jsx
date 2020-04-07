@@ -9,6 +9,16 @@ const formikWrapper = withFormik({
     email: "",
     topics: [],
   }),
+  handleSubmit: (values, { setSubmitting }) => {
+    const payload = {
+      ...values,
+      topics: values.topics.map((x) => x.value),
+    };
+    setTimeout(() => {
+      console.log(JSON.stringify(payload, null, 2));
+      setSubmitting(false);
+    }, 2000);
+  },
 });
 
 const options = [
@@ -22,9 +32,13 @@ function SignUpForm({
   handleBlur,
   setFieldValue,
   setTouchedValue,
+  handleSubmit,
+  handleReset,
+  isSubmitting,
+  dirty,
 }) {
   return (
-    <form className="p-5">
+    <form className="p-5" onSubmit={handleSubmit}>
       <h1>Sign up</h1>
       <div className="form-group">
         <label>User name</label>
@@ -60,10 +74,19 @@ function SignUpForm({
         />
       </div>
       <div className="pr-1">
-        <button className="btn btn-secondary mr-3" type="submit">
+        <button
+          className="btn btn-secondary mr-3"
+          type="submit"
+          disabled={!dirty || isSubmitting}
+          onClick={handleReset}
+        >
           reset
         </button>
-        <button className="btn btn-primary" type="submit">
+        <button
+          className="btn btn-primary"
+          type="submit"
+          disabled={isSubmitting}
+        >
           submit
         </button>
       </div>
