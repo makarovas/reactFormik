@@ -1,2 +1,4 @@
 import SimpleForm from "./Form";
-export default SimpleForm;
+import SignUpForm from "./SignUpForm";
+
+export { SimpleForm, SignUpForm };
